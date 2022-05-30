@@ -1,8 +1,14 @@
 {
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.5.1",
-    "axios": "^0.27.2",
     "parcel": "^2.6.0",
     "process": "^0.11.10"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "scripts": {
+    "start": "parcel ./index.html",
+    "genapi": "openapi-generator-cli generate -i <(curl -s 'http://localhost:8000/openapi.json') -g typescript-axios -o generated -p withSeparateModelsAndApi=true,apiPackage=api,modelPackage=models,useSingleRequestParameter=true"
   }
 }
